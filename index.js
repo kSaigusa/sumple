@@ -6,12 +6,6 @@ $(function () {
         });
     });
 
-    let options = document.querySelectorAll(`select[name='choices'] option`);
-
-    document.querySelector(`select[name='item']`).addEventListener(`change`, function () {
-		console.log(e.selected);
-	})
-
     // 送信
     $('form').submit(function () {
         var date = $('input[name="date"]').val();
