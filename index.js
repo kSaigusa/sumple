@@ -15,7 +15,7 @@ $(function () {
     // 送信
     $('form').submit(function () {
         var date = $('input[name="date"]').val();
-        var name = $('input[name="name"]').val();
+        var name = document.getElementById("form-name").value ;
         var number = $('input[name="phone-number"]').val();
         var item = $("#select").children("option:selected");
         var itemText = item.text();
