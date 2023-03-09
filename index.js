@@ -6,28 +6,15 @@ $(function () {
         });
     });
 
-    // 参加人数分の氏名欄を生成
-    $('#form-number').click(function () {
-        $('#form-name').empty();
-        var num = $('input[name="number"]:checked').val();
-        for (i = 0; i < num; i++) {
-            $('#form-name').append(
-                `<input class="form-control w-100 mt-1" name="name" maxlength="10">`
-            );
-        }
-    });
-
     // 送信
     $('form').submit(function () {
         var date = $('input[name="date"]').val();
-        var number = $('input[name="number"]:checked').val();
-        var names = '';
-        $('#form-name').children().each(function (i, elm) {
-            names += $(elm).val() + '、';
-        })
-        names = names.slice(0, -1);
+        var name = $('input[name="name"]:checked').val();
+        var number = $('input[name="phone-number"]:checked').val();
+        var item = $('input[name="item"]:checked').val();
+        var inumber = $('input[name="items-number"]:checked').val();
 
-        var msg = `希望日：${date}\n人数：${number}\n氏名：${names}`;
+        var msg = `受け取り日：${date}\n氏名：${name}\n電話番号：${number}\n注文商品：${inumber}`;
         sendText(msg);
 
         return false;
