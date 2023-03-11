@@ -51,3 +51,4 @@ function shareTargetPicker(text) {
         window.alert('Failed to send message ' + error);
     });
 }
+
