@@ -21,7 +21,7 @@ $(function () {
     $('form').submit(function () {
         var date = $('input[name="date"]').val();
         var number = $('input[name="number"]:checked').val();
-        var phone = $('input[name="phone-number"]')val();
+        var phone = $('input[name="phone-number"]').val();
         var names = '';
         $('#form-name').children().each(function (i, elm) {
             names += $(elm).val() + '、';
