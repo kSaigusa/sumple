@@ -1,21 +1,33 @@
 $(function () {
     // カレンダー
     $(function () {
-        $('input[name="date"]').datetimepicker({
-            step:15,
+        $('input[name="date"]').datepicker({
+            dateFormat: 'yy/mm/dd',
         });
+    });
+
+    // 参加人数分の氏名欄を生成
+    $('#form-number').click(function () {
+        $('#form-name').empty();
+        var num = $('input[name="number"]:checked').val();
+        for (i = 0; i < num; i++) {
+            $('#form-name').append(
+                `<input class="form-control w-100 mt-1" name="name" maxlength="10">`
+            );
+        }
     });
 
     // 送信
     $('form').submit(function () {
         var date = $('input[name="date"]').val();
-        var name = $('input[name="name"]').val();
-        var number = $('input[name="phone-number"]').val();
-        var item = $("#select").children("option:selected");
-        var itemText = item.text();
-        var inumber = $('input[name="items-number"]').val();
+        var number = $('input[name="number"]:checked').val();
+        var names = '';
+        $('#form-name').children().each(function (i, elm) {
+            names += $(elm).val() + '、';
+        })
+        names = names.slice(0, -1);
 
-        var msg = `受け取り日時：${date}\n氏名：${name}\n電話番号：${number}\n注文商品：${itemText}\n個数：${inumber}`;
+        var msg = `希望日：${date}\n人数：${number}\n氏名：${names}`;
         sendText(msg);
 
         return false;
