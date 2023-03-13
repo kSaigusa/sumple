@@ -28,7 +28,7 @@ $(function () {
         })
         names = names.slice(0, -1);
         
-        if(phone == null){
+        if(phone == "" || phone == null){
             var msg = `希望日：${date}\n人数：${number}\n氏名：${names}`;
         }else{
             var msg = `希望日：${date}\n人数：${number}\n氏名：${names}\n電話番号：${phone}`;
